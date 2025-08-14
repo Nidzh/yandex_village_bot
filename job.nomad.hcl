@@ -54,7 +54,7 @@ job "yandex_village_bot_back" {
         SERVER__PROJECT_NAME  = "Garmonbozia yandex_village_bot 🌽"
 
         BOT__RUN              = "True"
-        BOT__WEBHOOK_URL      = "https://yandex_village_bot.garmonbozia.cloud"
+        BOT__WEBHOOK_URL      = "https://village.baza.baby"
         BOT__NAME             = "vertical_openair_bot"
       }
 
