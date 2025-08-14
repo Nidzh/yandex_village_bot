@@ -1,0 +1,73 @@
+[tool.poetry]
+name = "yandex_village"
+version = "0.1.0"
+description = ""
+authors = ["Nidzhat Ragimov <n.ragimov@outlook.com>"]
+packages = [{ include = "scripts" }]
+
+[tool.poetry.scripts]
+create-app = "scripts.create-app:main"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+uvicorn = "^0.29.0"
+sqlalchemy = "^2.0.29"
+asyncpg = "^0.29.0"
+alembic = "^1.13.1"
+prometheus-fastapi-instrumentator = "^7.0.0"
+pydantic-settings = "^2.2.1"
+email-validator = "^2.1.1"
+loguru = "^0.7.2"
+httpx = "^0.28.0"
+orjson = "^3.10.1"
+pydantic = "^2.7.1"
+python-multipart = "^0.0.9"
+fastapi-filter = {extras = ["sqlalchemy"], version = "^2.0.0"}
+filetype = "^1.2.0"
+gunicorn = "^22.0.0"
+pyjwt = "^2.8.0"
+fastapi-pagination = "^0.12.26"
+aiogram = "^3.10.0"
+apscheduler = "^3.11.0"
+redis = "^5.2.1"
+fastapi-cache2 = "^0.2.2"
+hcloud = "^2.3.0"
+httpx-auth = "^0.23.1"
+nanoid = "^2.0.0"
+pytz = "^2024.2"
+ruff = "^0.9.3"
+fastapi = "^0.116.1"
+uvloop = "^0.21.0"
+httptools = "^0.6.4"
+
+[build-system]
+requires = ["poetry-core"]
+
+build-backend = "poetry.core.masonry.api"
+[tool.ruff]
+exclude = ["migrations", "scripts"]
+target-version = "py312"
+line-length = 140
+indent-width = 4
+
+[tool.ruff.format]
+indent-style = "space"
+quote-style = "double"
+
+[tool.ruff.lint]
+select = [
+    "E",    # Проверки PEP8 (синтаксис и форматирование кода)
+    "F",    # Проверки Flake8 (неиспользуемые переменные, неправильные импорты и т.д.)
+    "B",    # Проверки Bugbear (предупреждения о частых ошибках, например, медленные операции)
+    "C",    # Проверки, связанные с классами (например, неправильное оформление методов)
+    "I",    # Сортировка импортов (группировка и упорядочивание импортов)
+    "UP"    # Устаревшие конструкции (например, использование старых API Python)
+]
+ignore = [
+    "B008", # Предупреждение об использовании изменяемых типов данных в качестве значений по умолчанию
+    "E501", # Предупреждение о превышении длины строки
+    "C901", # Предупреждение о слишком сложной функции
+    "E712", # Предупреждение об использовании встроенных функций
+    "B904", # Предупреждение об ошибках
+
+]
