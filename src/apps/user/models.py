@@ -12,4 +12,4 @@ class User(Base, Base.TimestampsMixin, Base.IsDeletedMixin):
     username: Mapped[str | None] = mapped_column(comment="Username")
     language_code: Mapped[str | None] = mapped_column(comment="Language code")
     is_admin: Mapped[bool] = mapped_column(default=False, index=True, comment="Is admin")
-    city: Mapped[str | None] = mapped_column(comment="City")
+    city: Mapped[str | None] = mapped_column(index=True, comment="City")

@@ -27,6 +27,9 @@ class UserService:
     async def get_admin_ids(self):
         return await self.repo.get_admin_ids()
 
+    async def get_user_ids_by_city(self, city: str) -> list[int]:
+        return await self.repo.get_user_ids_by_city(city=city)
+
     async def get_user_language_code(self, user_id: int) -> str:
         return await self.repo.get_user_language_code(user_id=user_id)
 

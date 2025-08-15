@@ -26,3 +26,8 @@ class UserRepository(BaseRepository):
         statement = select(User.id).where(User.is_admin)
         result = await self.session.execute(statement)
         return result.scalars().all()
+
+    async def get_user_ids_by_city(self, city: str):
+        statement = select(User.id).where(User.city == city)
+        result = await self.session.execute(statement)
+        return result.scalars().all()

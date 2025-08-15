@@ -38,14 +38,14 @@ async def upload_all_media(bot: Bot):
     #         obj = await bot.send_voice(chat_id=admin_id, voice=file)
     #         media[filename] = obj.voice.file_id
     #
-    # # UPLOAD GIF
-    # directory = "./media/animation"
-    # for filename in os.listdir(directory):
-    #     filepath = os.path.join(directory, filename)
-    #     if os.path.isfile(filepath):
-    #         file = FSInputFile(filepath)
-    #         obj = await bot.send_animation(chat_id=admin_id, animation=file)
-    #         media[filename] = obj.animation.file_id
+    # UPLOAD GIF
+    directory = "./media/animation"
+    for filename in os.listdir(directory):
+        filepath = os.path.join(directory, filename)
+        if os.path.isfile(filepath):
+            file = FSInputFile(filepath)
+            obj = await bot.send_animation(chat_id=admin_id, animation=file)
+            media[filename] = obj.animation.file_id
     #
     # # UPLOAD DOCUMENTS
     # directory = "./media/documents"
