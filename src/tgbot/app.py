@@ -33,7 +33,7 @@ class TelegramBot:
             await set_commands(self.bot)
             await self._declare_fastapi_webhook_route()
             await self._set_webhook_with_file_lock()
-            # await upload_all_media(self.bot)
+            await upload_all_media(self.bot)
             await read_media_map(self.dp)
             logger.success("Телеграм-бот запущен")
 
