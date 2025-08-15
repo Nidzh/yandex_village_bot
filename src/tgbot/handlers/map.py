@@ -16,6 +16,7 @@ async def map(callback, state, text, media):
     )
 
     kb = InlineKeyboardBuilder()
+    kb.button(text="🔍 Высокое разрешение", url="https://clck.ru/3NfkxE")
     kb.button(text=text.back, callback_data="main")
     kb.adjust(1)
 
