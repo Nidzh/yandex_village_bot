@@ -12,5 +12,5 @@ scheduler = AsyncIOScheduler(timezone=UTC)
 # scheduler.add_job(test, trigger="interval", seconds=10)
 
 
-scheduler.add_job(_12_00, CronTrigger(day=15, hour=12, minute=00, timezone=ZoneInfo("Europe/Moscow")))
-scheduler.add_job(_16_00, CronTrigger(day=15, hour=16, minute=00, timezone=ZoneInfo("Europe/Moscow")))
+scheduler.add_job(_12_00, CronTrigger(day=15, hour=16, minute=00, timezone=ZoneInfo("Europe/Moscow")))
+scheduler.add_job(_16_00, CronTrigger(day=15, hour=19, minute=00, timezone=ZoneInfo("Europe/Moscow")))
