@@ -2,7 +2,7 @@ job "yandex_village_bot_back" {
   datacenters = ["dc1"]
   type = "service"
   meta = {
-    "version" = "0.0.7"
+    "version" = "0.0.8"
   }
 
   group "yandex_village_bot_back-group" {
