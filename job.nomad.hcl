@@ -2,7 +2,7 @@ job "yandex_village_bot_back" {
   datacenters = ["dc1"]
   type = "service"
   meta = {
-    "version" = "0.0.4"
+    "version" = "0.0.5"
   }
 
   group "yandex_village_bot_back-group" {
@@ -53,6 +53,7 @@ job "yandex_village_bot_back" {
 
         BOT__RUN              = "True"
         BOT__WEBHOOK_URL      = "https://village.baza.baby"
+        BOT__WEBHOOK_IP       = "116.203.119.236"
         BOT__NAME             = "vertical_openair_bot"
       }
 

@@ -79,6 +79,7 @@ class TelegramBot:
             if current_webhook.url != self.webhook_path:
                 await self.bot.set_webhook(
                     url=self.webhook_url + self.webhook_path,
+                    ip_address=settings.bot.WEBHOOK_IP,
                     allowed_updates=self.dp.resolve_used_update_types(),
                     drop_pending_updates=True,
                 )

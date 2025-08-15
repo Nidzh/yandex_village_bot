@@ -1,4 +1,3 @@
-import asyncio
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
@@ -28,29 +27,23 @@ async def lifespan(app: FastAPI):
     if settings.scheduler.RUN:
         scheduler.start()
 
-
-    bot_task = None
+    # Запуск Telegram-бота
     if settings.bot.RUN:
-        async def _start_bot():
-            await asyncio.sleep(5)
-            try:
-                await bot.run()
-            except Exception as e:
-                logger.exception("Ошибка при запуске бота: {}", e)
-
-        bot_task = asyncio.create_task(_start_bot())
+        await bot.run()
 
     logger.success("Приложение запущено")
-    try:
-        yield
-    finally:
-        if settings.bot.RUN:
-            if bot_task:
-                bot_task.cancel()
-            await bot.stop()
-        if settings.scheduler.RUN:
-            scheduler.shutdown()
-        logger.success("Приложение остановлено")
+
+    yield
+
+    # Остановка Telegram-бота
+    if settings.bot.RUN:
+        await bot.stop()
+
+    # Остановка периодических задач
+    if settings.scheduler.RUN:
+        scheduler.shutdown()
+
+    logger.success("Приложение остановлено")
 
 
 app = FastAPI(lifespan=lifespan, **config)

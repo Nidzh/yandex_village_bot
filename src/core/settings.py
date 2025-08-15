@@ -44,6 +44,7 @@ class Bot(BaseModel):
     RUN: bool
     TOKEN: str
     WEBHOOK_URL: str
+    WEBHOOK_IP: str
     NAME: str
 
 
