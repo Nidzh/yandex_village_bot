@@ -26,6 +26,14 @@ async def main(message, state, text, media):
             await choice_city(message, state, text)
             return
 
+        if user.city == 'belgrad':
+            title = (
+                f"📅 Все подробности мы раскроем 22 августа.\n\n"
+                f"🤝 Встречаемся в {_B('«Балдёжино»')}!"
+            )
+            await message.answer(title)
+            return
+
     title = f"{_B('📍 Главное меню:')}"
 
     #  Формируем клавиатуру.
