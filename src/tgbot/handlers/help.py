@@ -8,7 +8,7 @@ router = Router()
 
 
 @router.callback_query(F.data == "help")
-async def help(callback, state, text):
+async def help(callback, state, text, media):
     title = f"{_B('🐱 Котопомощь:')}"
 
     kb = InlineKeyboardBuilder()
@@ -26,11 +26,11 @@ async def help(callback, state, text):
     kb.button(text=text.back, callback_data="main")
     kb.adjust(1)
 
-    await smart_edit(callback, title, kb)
+    await smart_edit(callback, title, kb, media=media.get("main.png"))
 
 
 @router.callback_query(F.data.startswith("faq:"))
-async def choice_activity(callback, state, text):
+async def choice_activity(callback, state, text, media):
     await callback.answer()
     question = int(callback.data.split(":")[1])
 
@@ -107,4 +107,4 @@ async def choice_activity(callback, state, text):
     kb.button(text=text.back, callback_data="help")
     kb.adjust(1)
 
-    await smart_edit(callback, title, kb)
+    await smart_edit(callback, title, kb, media=media.get("main.png"))

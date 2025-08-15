@@ -22,4 +22,5 @@ async def wardrobe(callback, state, text, media):
     kb.button(text=text.back, callback_data="main")
     kb.adjust(1)
 
-    await smart_edit(callback, title, kb, media=media.get("wardrobe.jpg"))
+    # await smart_edit(callback, title, kb, media=media.get("wardrobe.jpg"))
+    await callback.answer("Раздел будет доступен в день фестиваля.", show_alert=True)

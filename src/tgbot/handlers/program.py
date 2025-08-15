@@ -8,11 +8,11 @@ router = Router()
 
 
 @router.callback_query(F.data == "program")
-async def program(callback, state, text):
+async def program(callback, state, text, media):
     title = f"{_B('~ Расписание выступлений на сцене ~')}"
 
     kb = InlineKeyboardBuilder()
     kb.button(text=text.back, callback_data="main")
     kb.adjust(1)
 
-    await smart_edit(callback, title, kb)
+    await smart_edit(callback, title, kb, media=media.get("main.png"))

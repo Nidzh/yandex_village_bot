@@ -8,8 +8,8 @@ router = Router()
 
 
 @router.callback_query(F.data == "activity")
-async def activity(callback, state, text):
-    title = f"{_B('🎯 Активности')}"
+async def activity(callback, state, text, media):
+    title = f"{_B('🎯 Активности:')}"
 
     kb = InlineKeyboardBuilder()
     kb.button(text="☀️ Явь (13:00–21:00)", callback_data="choice_activity:yav")
@@ -17,15 +17,15 @@ async def activity(callback, state, text):
     kb.button(text=text.back, callback_data="main")
     kb.adjust(2, 1)
 
-    await smart_edit(callback, title, kb)
+    await smart_edit(callback, title, kb, media=media.get("main.png"))
 
 
 @router.callback_query(F.data.startswith("choice_activity:"))
-async def choice_activity(callback, state, text):
+async def choice_activity(callback, state, text, media):
     await callback.answer()
     zone = callback.data.split(":")[1]
 
-    title = f"{_B('📍 Выберите зону')}"
+    title = f"{_B('📍 Выберите зону:')}"
 
     kb = InlineKeyboardBuilder()
     kb.button(text="🌾 Поле Притопа", callback_data=f"get_activity:{zone}:1")
@@ -35,13 +35,13 @@ async def choice_activity(callback, state, text):
     kb.button(text="🌊 Заводь грёз", callback_data=f"get_activity:{zone}:5")
     kb.button(text="👗 Нарядильня", callback_data=f"get_activity:{zone}:6")
     kb.button(text=text.back, callback_data="activity")
-    kb.adjust(3, 3, 1)
+    kb.adjust(2, 2, 2, 1)
 
-    await smart_edit(callback, title, kb)
+    await smart_edit(callback, title, kb, media=media.get("main.png"))
 
 
 @router.callback_query(F.data.startswith("get_activity:"))
-async def get_activity(callback, state, text):
+async def get_activity(callback, state, text, media):
     await callback.answer()
     zone = callback.data.split(":")[1]
     activity = int(callback.data.split(":")[2])
@@ -165,4 +165,4 @@ async def get_activity(callback, state, text):
     kb.button(text=text.back, callback_data=f"choice_activity:{zone}")
     kb.adjust(1)
 
-    await smart_edit(callback, title, kb)
+    await smart_edit(callback, title, kb, media=media.get("main.png"))

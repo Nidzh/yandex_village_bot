@@ -30,14 +30,14 @@ async def main(message, state, text, media):
 
     #  Формируем клавиатуру.
     kb = InlineKeyboardBuilder()
-    kb.button(text="🧥 Гардероб", callback_data="wardrobe")
     kb.button(text="🗺️ Карта", callback_data="map")
     kb.button(text="🚖 Трансфер", callback_data="transfer")
     kb.button(text="📅 Программа", callback_data="program")
     kb.button(text="🎯 Активности", callback_data="activity")
+    kb.button(text="🧥 Гардероб", callback_data="wardrobe")
     kb.button(text="📜 Летопись", callback_data="chronicle")
     kb.button(text="🐱 Котопомощь", callback_data="help")
 
-    kb.adjust(3,2,1,1)
+    kb.adjust( 2, 2, 1, 1, 1)
 
     await smart_edit(message, title, kb, media=media.get("main.png"))

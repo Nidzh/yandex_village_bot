@@ -14,4 +14,5 @@ async def chronicle(callback, state, text):
     kb.button(text=text.back, callback_data="main")
     kb.adjust(1)
 
-    await smart_edit(callback, title, kb)
+    # await smart_edit(callback, title, kb)
+    await callback.answer("Раздел будет доступен в день фестиваля.", show_alert=True)
