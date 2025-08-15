@@ -2,7 +2,7 @@ job "yandex_village_bot_back" {
   datacenters = ["dc1"]
   type = "service"
   meta = {
-    "version" = "0.0.2"
+    "version" = "0.0.3"
   }
 
   group "yandex_village_bot_back-group" {
@@ -50,8 +50,6 @@ job "yandex_village_bot_back" {
         REDIS__DATABASE       = 1
         POSTGRESQL__DATABASE  = "yandex_village"
 
-        SERVER__PROJECT_URI   = "yandex_village_bot.garmonbozia.cloud"
-        SERVER__PROJECT_NAME  = "Garmonbozia yandex_village_bot 🌽"
 
         BOT__RUN              = "True"
         BOT__WEBHOOK_URL      = "https://village.baza.baby"
