@@ -1,12 +1,12 @@
 from aiogram.types import InputMediaPhoto
 
-from src.scheduler.groups.service import get_admin_users, load_media
+from src.scheduler.groups.service import load_media, get_moscow_users
 from src.tgbot.formatter import _B, _I
 
 
-async def test():
+async def _12_00():
     from src.app import bot
-    users = await get_admin_users()
+    users = await get_moscow_users()
     media = load_media()
 
     title = (
