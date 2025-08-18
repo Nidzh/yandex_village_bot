@@ -21,7 +21,7 @@ async def transfer(callback, state, text, media):
 
     kb = InlineKeyboardBuilder()
     kb.button(text="📍 Я.Карты", url="https://yandex.ru/maps/-/CHtbR2kH")
-    kb.button(text="🔍 Высокое разрешение", url="https://clck.ru/3Ng96j")
+    kb.button(text="🔍 Высокое разрешение", url="https://clck.ru/3NiErq")
     kb.button(text=text.back, callback_data="main")
     kb.adjust(1)
 
