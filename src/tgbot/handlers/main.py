@@ -46,6 +46,6 @@ async def main(message, state, text, media):
     kb.button(text="📜 Летопись", callback_data="chronicle")
     kb.button(text="🐱 Котопомощь", callback_data="help")
 
-    kb.adjust( 2, 2, 1, 1, 1)
+    kb.adjust( 2, 2, 2, 1)
 
     await smart_edit(message, title, kb, media=media.get("main.png"))

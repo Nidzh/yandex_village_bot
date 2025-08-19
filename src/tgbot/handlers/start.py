@@ -1,5 +1,5 @@
 from aiogram import Router, F
-from aiogram.filters import CommandStart
+from aiogram.filters import CommandStart, Command
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message, CallbackQuery
 from aiogram.utils.keyboard import InlineKeyboardBuilder
@@ -9,6 +9,7 @@ from src.apps.user.service import UserService
 from src.db.context import get_session
 from src.tgbot.formatter import _B
 from src.tgbot.handlers.welcome import welcome
+from src.tgbot.utils import smart_edit
 
 router = Router()
 
@@ -32,7 +33,7 @@ async def start(message: Message, state, text):
     await choice_city(message, state, text)
     await message.delete()
 
-
+@router.message(Command("city"))
 async def choice_city(message: Message, state, text):
     title = f"{_B('🎉 Добро пожаловать в чат-бот Open Air Яндекс Вертикалей!')}\n\nВыберите свой город:"
 

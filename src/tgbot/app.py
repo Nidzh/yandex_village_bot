@@ -33,13 +33,20 @@ class TelegramBot:
             await set_commands(self.bot)
             await self._declare_fastapi_webhook_route()
             await self._set_webhook_with_file_lock()
-            await upload_all_media(self.bot)
             await read_media_map(self.dp)
             logger.success("Телеграм-бот запущен")
 
         except TelegramAPIError as e:
             logger.error(f"Не удалось установить webhook: {e}")
             raise RuntimeError("Failed to set webhook")
+
+    async def upload_media(self):
+        try:
+            await upload_all_media(self.bot)
+            logger.info("Все медиа успешно загружены")
+        except Exception as e:
+            logger.error(f"Ошибка при загрузке медиа: {e}")
+            raise RuntimeError("Failed to upload media")
 
     def _register_global_middlewares(self):
         for middleware in MIDDLEWARES:

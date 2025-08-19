@@ -7,6 +7,7 @@ from src.db.context import get_session
 
 USER_COMMANDS = [
     BotCommand(command="main", description="Главное меню"),
+    BotCommand(command="city", description="Выбрать город"),
 ]
 
 ADMIN_COMMANDS = (

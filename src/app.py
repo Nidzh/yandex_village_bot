@@ -14,6 +14,7 @@ from src.middleware.exceptions import setup_exception_handlers
 from src.middleware.logging import setup_logging
 from src.middleware.monitoring import setup_monitoring_and_healthcheck
 from src.middleware.pagination import setup_pagination
+from src.scheduler.app import run_test
 from src.tgbot.app import TelegramBot
 
 
@@ -24,11 +25,13 @@ async def lifespan(app: FastAPI):
 
     # Запуск Telegram-бота
     if settings.bot.RUN:
+        await bot.upload_media()
         await bot.run()
 
     # Запуск периодических задач
     from src.scheduler.app import scheduler
     if settings.scheduler.RUN:
+        await run_test()
         scheduler.start()
 
     logger.success("Приложение запущено")
