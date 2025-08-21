@@ -13,7 +13,7 @@ class User(Base, Base.TimestampsMixin, Base.IsDeletedMixin):
     language_code: Mapped[str | None] = mapped_column(comment="Language code")
     is_admin: Mapped[bool] = mapped_column(default=False, index=True, comment="Is admin")
     city: Mapped[str | None] = mapped_column(index=True, comment="City")
-
+    wardrobe_ticket: Mapped[int | None] = mapped_column(index=True, comment="Wardrobe ticket number")
 
 class Answer(Base, Base.TimestampsMixin):
     __tablename__ = "answer"
@@ -22,3 +22,10 @@ class Answer(Base, Base.TimestampsMixin):
     user_id: Mapped[bigint] = mapped_column(index=True, comment="User ID")
     question_code: Mapped[str] = mapped_column(index=True, comment="Question code")
     answer: Mapped[str] = mapped_column(comment="Answer text")
+
+class WardrobeTicket(Base):
+    __tablename__ = "wardrobe_ticket"
+
+    id: Mapped[int] = mapped_column(primary_key=True, comment="ID")
+    ticket: Mapped[int] = mapped_column(index=True, comment="Ticket number")
+    is_used: Mapped[bool] = mapped_column(default=False, index=True, comment="Is used")

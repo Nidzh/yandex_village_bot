@@ -39,3 +39,13 @@ class UserService:
 
     async def create_answer(self, data: AnswerCreate):
         await self.repo.create_answer(data.model_dump())
+
+    async def create_wardrobe_ticket(self, user_id: int) -> int:
+        free_wardrobe_ticket_number = await self.repo.pop_wardrobe_ticket()
+        await self.update_user(
+            UserUpdateSchema(
+                id=user_id,
+                wardrobe_ticket=free_wardrobe_ticket_number
+            )
+        )
+        return free_wardrobe_ticket_number

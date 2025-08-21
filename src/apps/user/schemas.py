@@ -15,7 +15,7 @@ class UserCreate(CustomBaseModel):
 
 class UserUpdateSchema(UserCreate):
     city: str | None = Field(None, description="City")
-
+    wardrobe_ticket: int | None = Field(None, description="Wardrobe ticket number")
 
 class UserSchema(UserUpdateSchema):
     is_admin: bool = Field(..., description="Is admin")

@@ -1,4 +1,4 @@
-from sqlalchemy import select
+from sqlalchemy import select, func, update
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from src.apps.user.models import User
@@ -37,3 +37,26 @@ class UserRepository(BaseRepository):
         new_object = Answer(**data)
         self.session.add(new_object)
         await self.session.commit()
+
+    async def pop_wardrobe_ticket(self) -> int:
+        from src.apps.user.models import WardrobeTicket
+        pick = (
+            select(WardrobeTicket.ticket)
+            .where(WardrobeTicket.is_used.is_(False))
+            .order_by(func.random())
+            .limit(1)
+            .with_for_update(skip_locked=True)
+        ).cte("pick")
+
+        # Важно: select(...) в WHERE нужно завернуть в scalar_subquery()
+        ticket = await self.session.scalar(
+            update(WardrobeTicket)
+            .where(WardrobeTicket.ticket == select(pick.c.ticket).scalar_subquery())
+            .values(is_used=True)
+            .returning(WardrobeTicket.ticket)
+        )
+
+        if ticket is None:
+            raise ValueError("No free wardrobe tickets available")
+
+        return ticket
