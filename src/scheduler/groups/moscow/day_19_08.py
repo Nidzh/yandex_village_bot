@@ -122,8 +122,6 @@ async def time_18_00(test: bool = False):
         f"✨ Готовьтесь к незабываемым приключениям!"
     )
 
-    print(title)
-    print(len(title))
 
     kb = None
     markup = kb.as_markup() if kb else None

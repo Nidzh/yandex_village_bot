@@ -8,6 +8,7 @@ from src.tgbot.handlers.help import router as _help_router
 from src.tgbot.handlers.activity import router as _program_router
 from src.tgbot.handlers.transfer import router as _transfer_router
 from src.tgbot.handlers.wardrobe import router as _wardrobe_router
+from src.tgbot.handlers.answer import router as _answer_router
 
 
 MAIN_ROUTER = [
@@ -21,4 +22,5 @@ MAIN_ROUTER = [
     _program_router,
     _transfer_router,
     _wardrobe_router,
+    _answer_router,
 ]

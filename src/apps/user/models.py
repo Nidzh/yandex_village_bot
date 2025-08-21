@@ -13,3 +13,12 @@ class User(Base, Base.TimestampsMixin, Base.IsDeletedMixin):
     language_code: Mapped[str | None] = mapped_column(comment="Language code")
     is_admin: Mapped[bool] = mapped_column(default=False, index=True, comment="Is admin")
     city: Mapped[str | None] = mapped_column(index=True, comment="City")
+
+
+class Answer(Base, Base.TimestampsMixin):
+    __tablename__ = "answer"
+
+    id: Mapped[int] = mapped_column(primary_key=True,  comment="ID")
+    user_id: Mapped[bigint] = mapped_column(index=True, comment="User ID")
+    question_code: Mapped[str] = mapped_column(index=True, comment="Question code")
+    answer: Mapped[str] = mapped_column(comment="Answer text")

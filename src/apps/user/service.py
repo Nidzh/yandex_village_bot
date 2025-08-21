@@ -1,7 +1,7 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from src.apps.user.repository import UserRepository
-from src.apps.user.schemas import UserCreate, UserUpdateSchema, UserSchema
+from src.apps.user.schemas import UserCreate, UserUpdateSchema, UserSchema, AnswerCreate
 
 
 class UserService:
@@ -36,3 +36,6 @@ class UserService:
     async def get_user_by_id(self, user_id: int) -> UserSchema:
         user_data = await self.repo.get_by_id(user_id)
         return UserSchema.model_validate(user_data)
+
+    async def create_answer(self, data: AnswerCreate):
+        await self.repo.create_answer(data.model_dump())

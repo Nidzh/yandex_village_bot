@@ -22,3 +22,7 @@ class UserSchema(UserUpdateSchema):
     created_at: datetime = Field(..., description="Created at")
     updated_at: datetime = Field(..., description="Updated at")
 
+class AnswerCreate(CustomBaseModel):
+    user_id: int = Field(..., description="User ID")
+    question_code: str = Field(..., description="Question code")
+    answer: str = Field(..., description="Answer text")

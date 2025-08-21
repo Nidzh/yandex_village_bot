@@ -1,4 +1,4 @@
-from sqlalchemy import delete, select
+from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from src.apps.user.models import User
@@ -31,3 +31,9 @@ class UserRepository(BaseRepository):
         statement = select(User.id).where(User.city == city)
         result = await self.session.execute(statement)
         return result.scalars().all()
+
+    async def create_answer(self, data: dict):
+        from src.apps.user.models import Answer
+        new_object = Answer(**data)
+        self.session.add(new_object)
+        await self.session.commit()

@@ -25,7 +25,7 @@ async def lifespan(app: FastAPI):
 
     # Запуск Telegram-бота
     if settings.bot.RUN:
-        await bot.upload_media()
+        # await bot.upload_media()
         await bot.run()
 
     # Запуск периодических задач
