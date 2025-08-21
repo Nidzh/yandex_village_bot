@@ -1,3 +1,5 @@
+import asyncio
+
 from aiogram import F, Router
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 from aiogram.fsm.state import State, StatesGroup
@@ -6,6 +8,7 @@ from src.apps.user.schemas import AnswerCreate
 from src.apps.user.service import UserService
 from src.db.context import get_session
 from src.tgbot.formatter import _B
+from src.tgbot.handlers.main import main
 from src.tgbot.utils import smart_edit
 
 router = Router()
@@ -15,6 +18,7 @@ router = Router()
 class AnswerState(StatesGroup):
     FAIRYTALE = State()
     COCKTAIL = State()
+    CHRONICLE = State()
 
 
 @router.callback_query(F.data.startswith('answer:'))
@@ -38,14 +42,17 @@ async def answer_fairytale(callback, state, text, media):
                 f"😺 {_B('Кот Учёный')} ждёт твой креатив!\n\n"
                 "✍️ Пришли рецепт целиком в одном сообщении:"
             )
-
+        case "chronicle":
+            await state.set_state(AnswerState.CHRONICLE)
+            title = f"✍️ Отлично! Теперь пришли одно сообщение со своими ответами:"
 
     await callback.message.answer(title)
 
 
 @router.message(AnswerState.FAIRYTALE)
 @router.message(AnswerState.COCKTAIL)
-async def admin_answer(message, state):
+@router.message(AnswerState.CHRONICLE)
+async def admin_answer(message, state, text, media):
     data = await state.get_data()
     question_code = data['question_code']
 
@@ -64,4 +71,6 @@ async def admin_answer(message, state):
 
     await message.answer("📜 Ответ записан в летопись!")
     await state.clear()
+    await asyncio.sleep(3)
+    await main(message, state, text, media)
 
