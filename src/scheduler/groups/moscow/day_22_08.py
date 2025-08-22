@@ -183,6 +183,26 @@ async def time_15_20(test: bool = False):
         await bot.bot.send_media_group(chat_id=user, media=photos)
 
 
+async def time_15_25(test: bool = False):
+    from src.app import bot
+    users = await get_admin_users() if test else await get_moscow_users()
+    media = load_media()
+
+    title = (
+        f"🐾 {_B('Кот Учёный мурчит из Прядильни')}: \n\n"
+        f"Если вдруг захочется передохнуть от игрищ да весёлой суеты, знайте: "
+        f"в {_B('Прядильне')} есть тихие комнаты.\n\n"
+        f"Уютные, как берлога Емели, и тихие, как шёпот лесных существ. "
+        f"Там можно спокойно поговорить, поработать или просто перевести дух."
+    )
+
+    for user in users:
+        await bot.bot.send_message(
+            chat_id=user,
+            text=title,
+        )
+
+
 # 15:30 — Минута славы!  (media: 22_08_15_30.jpg)
 async def time_15_30(test: bool = False):
     from src.app import bot
