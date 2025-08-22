@@ -91,8 +91,10 @@ async def time_17_30(test: bool = False):
     )
 
     for user in users:
-        await bot.bot.send_message(chat_id=user, text=title)
-
+        try:
+            await bot.bot.send_message(chat_id=user, text=title)
+        except Exception as e:
+            continue
 
 async def time_19_00(test: bool = False):
     from src.app import bot
@@ -105,8 +107,10 @@ async def time_19_00(test: bool = False):
     )
 
     for user in users:
-        await bot.bot.send_message(chat_id=user, text=title)
-
+        try:
+            await bot.bot.send_message(chat_id=user, text=title)
+        except Exception as e:
+            continue
 
 async def time_19_50(test: bool = False):
     from src.app import bot
@@ -119,8 +123,10 @@ async def time_19_50(test: bool = False):
     )
 
     for user in users:
-        await bot.bot.send_message(chat_id=user, text=title)
-
+        try:
+            await bot.bot.send_message(chat_id=user, text=title)
+        except Exception as e:
+            continue
 
 async def time_20_00(test: bool = False):
     from src.app import bot
@@ -134,8 +140,10 @@ async def time_20_00(test: bool = False):
     )
 
     for user in users:
-        await bot.bot.send_message(chat_id=user, text=title)
-
+        try:
+            await bot.bot.send_message(chat_id=user, text=title)
+        except Exception as e:
+            continue
 
 async def time_20_30(test: bool = False):
     from src.app import bot
@@ -149,8 +157,10 @@ async def time_20_30(test: bool = False):
     )
 
     for user in users:
-        await bot.bot.send_message(chat_id=user, text=title)
-
+        try:
+            await bot.bot.send_message(chat_id=user, text=title)
+        except Exception as e:
+            continue
 
 async def time_23_00(test: bool = False):
     from src.app import bot
@@ -164,8 +174,10 @@ async def time_23_00(test: bool = False):
     )
 
     for user in users:
-        await bot.bot.send_message(chat_id=user, text=title)
-
+        try:
+            await bot.bot.send_message(chat_id=user, text=title)
+        except Exception as e:
+            continue
 
 async def time_23_55(test: bool = False):
     from src.app import bot
@@ -179,8 +191,10 @@ async def time_23_55(test: bool = False):
     )
 
     for user in users:
-        await bot.bot.send_message(chat_id=user, text=title)
-
+        try:
+            await bot.bot.send_message(chat_id=user, text=title)
+        except Exception as e:
+            continue
 
 async def time_00_25(test: bool = False):
     from src.app import bot
@@ -194,23 +208,10 @@ async def time_00_25(test: bool = False):
     )
 
     for user in users:
-        await bot.bot.send_message(chat_id=user, text=title)
-
+        try:
+            await bot.bot.send_message(chat_id=user, text=title)
+        except Exception as e:
+            continue
 
 # ПОСТЫ 23.08
 
-async def time_12_00(test: bool = False):
-    from src.app import bot
-    users = await get_admin_users() if test else await get_belgrad_users()
-
-    title = (
-        f"🗣 {_B('Обратная связь')}\n\n"
-        f"Говорят, что вчера было ТАК шумно, что лес да поляна ходуном ходили!\n\n"
-        f"Если вы там были и мёд, и пиво пили, да и закусок не пропустили — "
-        f"поделитесь с нами мнением о том, как всё прошло!\n\n"
-        f"Каждый голос и мнение важны — чтобы в будущем делать круче!\n\n"
-        f"🔗 Кнопка со ссылкой: {_A('Оставить отзыв', 'https://forms.yandex-team.ru/ext/surveys/13777043')}"
-    )
-
-    for user in users:
-        await bot.bot.send_message(chat_id=user, text=title)

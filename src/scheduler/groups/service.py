@@ -10,6 +10,12 @@ def load_media():
         return json.load(json_file)
 
 
+async def get_users():
+    async for session in get_session():
+        return await UserService(session=session).get_users()
+    return None
+
+
 async def get_admin_users():
     async for session in get_session():
         return await UserService(session=session).get_admin_ids()

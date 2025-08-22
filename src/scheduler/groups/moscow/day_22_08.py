@@ -422,9 +422,12 @@ async def time_01_00(test: bool = False):
     )
 
     for user in users:
-        await asyncio.sleep(0.2)
-        await bot.bot.send_photo(
-            chat_id=user,
-            photo=media["22_08_01_00.jpg"],
-            caption=title,
-        )
+        try:
+            await asyncio.sleep(0.2)
+            await bot.bot.send_photo(
+                chat_id=user,
+                photo=media["22_08_01_00.jpg"],
+                caption=title,
+            )
+        except Exception as e:
+            continue
