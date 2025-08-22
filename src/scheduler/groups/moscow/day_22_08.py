@@ -71,7 +71,7 @@ async def time_13_50(test: bool = False):
     title = (
         f"✨ {_B('Конкурс костюмов')}\n\n"
         f"Парни удалые да девицы красные! Приехали в ярких и стильных образах? Тогда айда участвовать!\n\n"
-        f"Сделайте фото своего костюма и загрузите через бот {_B('до 17:00')}.\n"
+        f"Сделайте фото своего костюма и загрузите через бот {_B('до 17:00')}.\n\n"
         f"А в 19:30 подведём итоги и наградим тех, за кого коллеги отдадут больше всего голосов. Дерзайте!"
     )
 
@@ -131,7 +131,7 @@ async def time_14_50(test: bool = False):
 
 
 # 15:10 — Сказочная трансляция  (media: 22_08_15_10.jpg)
-async def time_15_10(test: bool = False, stream_url: str = "https://example.com/stream"):
+async def time_15_10(test: bool = False, stream_url: str = "https://vkvideo.ru/video1066141499_456239039"):
     from src.app import bot
     users = await get_admin_users() if test else await get_moscow_users()
     media = load_media()
