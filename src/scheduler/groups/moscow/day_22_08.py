@@ -82,8 +82,10 @@ async def time_13_50(test: bool = False):
     markup = kb.as_markup()
 
     for user in users:
-        await bot.bot.send_message(chat_id=user, text=title, reply_markup=markup)
-
+        try:
+            await bot.bot.send_message(chat_id=user, text=title, reply_markup=markup)
+        except Exception as e:
+            continue
 
 # 14:00 — Активности  (media: 22_08_14_00.mp4)
 async def time_14_00(test: bool = False):
@@ -222,12 +224,15 @@ async def time_15_30(test: bool = False):
     )
 
     for user in users:
-        await asyncio.sleep(0.2)
-        await bot.bot.send_photo(
-            chat_id=user,
-            photo=media["22_08_15_30.jpg"],
-            caption=title,
-        )
+        try:
+            await asyncio.sleep(0.2)
+            await bot.bot.send_photo(
+                chat_id=user,
+                photo=media["22_08_15_30.jpg"],
+                caption=title,
+            )
+        except Exception as e:
+            continue
 
 
 # 15:50 — Выдача мерча  (media: 22_08_15_50.jpg)
@@ -244,13 +249,15 @@ async def time_15_50(test: bool = False):
     )
 
     for user in users:
-        await asyncio.sleep(0.2)
-        await bot.bot.send_photo(
-            chat_id=user,
-            photo=media["22_08_15_50.jpg"],
-            caption=title,
-        )
-
+        try:
+            await asyncio.sleep(0.2)
+            await bot.bot.send_photo(
+                chat_id=user,
+                photo=media["22_08_15_50.jpg"],
+                caption=title,
+            )
+        except Exception as e:
+            continue
 
 # 17:50 — Запускаем Горынычей!  (media: 22_08_17_50.png)
 async def time_17_50(test: bool = False):
@@ -266,12 +273,15 @@ async def time_17_50(test: bool = False):
     )
 
     for user in users:
-        await asyncio.sleep(0.2)
-        await bot.bot.send_photo(
-            chat_id=user,
-            photo=media["22_08_17_50.png"],
-            caption=title,
-        )
+        try:
+            await asyncio.sleep(0.2)
+            await bot.bot.send_photo(
+                chat_id=user,
+                photo=media["22_08_17_50.png"],
+                caption=title,
+            )
+        except Exception as e:
+            continue
 
 
 # 17:55 — Квест от Кощея  (media: 22_08_17_55.png)
@@ -288,12 +298,15 @@ async def time_17_55(test: bool = False):
     )
 
     for user in users:
-        await asyncio.sleep(0.2)
-        await bot.bot.send_photo(
-            chat_id=user,
-            photo=media["22_08_17_55.png"],
-            caption=title,
-        )
+        try:
+            await asyncio.sleep(0.2)
+            await bot.bot.send_photo(
+                chat_id=user,
+                photo=media["22_08_17_55.png"],
+                caption=title,
+            )
+        except Exception as e:
+            continue
 
 
 # 18:00 — Голосование за лучший костюм  (со ссылкой)
@@ -316,9 +329,11 @@ async def time_18_00(test: bool = False, vote_url: str = "https://forms.yandex.r
     markup = kb.as_markup()
 
     for user in users:
-        await asyncio.sleep(0.2)
-        await bot.bot.send_message(chat_id=user, text=title, reply_markup=markup)
-
+        try:
+            await asyncio.sleep(0.2)
+            await bot.bot.send_message(chat_id=user, text=title, reply_markup=markup)
+        except Exception as e:
+            continue
 
 # 19:20 — Награждение конкурса костюмов  (media: 22_08_19_20.jpg)
 async def time_19_20(test: bool = False):
@@ -333,12 +348,15 @@ async def time_19_20(test: bool = False):
     )
 
     for user in users:
-        await asyncio.sleep(0.2)
-        await bot.bot.send_photo(
-            chat_id=user,
-            photo=media["22_08_19_20.jpg"],
-            caption=title,
-        )
+        try:
+            await asyncio.sleep(0.2)
+            await bot.bot.send_photo(
+                chat_id=user,
+                photo=media["22_08_19_20.jpg"],
+                caption=title,
+            )
+        except Exception as e:
+            continue
 
 
 # 19:30 — Пора плясать!  (media: 22_08_19_30.mp4)
@@ -354,13 +372,15 @@ async def time_19_30(test: bool = False):
     )
 
     for user in users:
-        await asyncio.sleep(0.2)
-        await bot.bot.send_video(
-            chat_id=user,
-            video=media["22_08_19_30.mp4"],
-            caption=title,
-        )
-
+        try:
+            await asyncio.sleep(0.2)
+            await bot.bot.send_video(
+                chat_id=user,
+                video=media["22_08_19_30.mp4"],
+                caption=title,
+            )
+        except Exception as e:
+            continue
 
 # 20:30 — Явь к закату — Навь к восходу  (media: 22_08_20_30.png)
 async def time_20_30(test: bool = False):
@@ -375,12 +395,15 @@ async def time_20_30(test: bool = False):
     )
 
     for user in users:
-        await asyncio.sleep(0.2)
-        await bot.bot.send_photo(
-            chat_id=user,
-            photo=media["22_08_20_30.png"],
-            caption=title,
-        )
+        try:
+            await asyncio.sleep(0.2)
+            await bot.bot.send_photo(
+                chat_id=user,
+                photo=media["22_08_20_30.png"],
+                caption=title,
+            )
+        except Exception as e:
+            continue
 
 
 # 01:00 — Летопись Яви и Нави  (media: 22_08_01_00.jpg)

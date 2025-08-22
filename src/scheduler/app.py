@@ -56,6 +56,7 @@ scheduler.add_job(moscow_22_08.time_15_25, CronTrigger(day=22, hour=15, minute=2
 scheduler.add_job(moscow_22_08.time_15_30, CronTrigger(day=22, hour=15, minute=30, timezone=ZoneInfo("Europe/Moscow")))
 scheduler.add_job(moscow_22_08.time_15_50, CronTrigger(day=22, hour=15, minute=50, timezone=ZoneInfo("Europe/Moscow")))
 scheduler.add_job(moscow_22_08.time_13_50, CronTrigger(day=22, hour=16, minute=15, timezone=ZoneInfo("Europe/Moscow")))
+scheduler.add_job(moscow_22_08.time_13_50, CronTrigger(day=22, hour=16, minute=35, timezone=ZoneInfo("Europe/Moscow")))
 scheduler.add_job(moscow_22_08.time_17_50, CronTrigger(day=22, hour=17, minute=50, timezone=ZoneInfo("Europe/Moscow")))
 scheduler.add_job(moscow_22_08.time_17_55, CronTrigger(day=22, hour=17, minute=55, timezone=ZoneInfo("Europe/Moscow")))
 scheduler.add_job(moscow_22_08.time_18_00, CronTrigger(day=22, hour=18, minute=00, timezone=ZoneInfo("Europe/Moscow")))
