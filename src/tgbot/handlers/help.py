@@ -95,16 +95,16 @@ async def choice_activity(callback, state, text, media):
         case 10:
             title = (
                 f"📩 Опишите свою проблему и отправьте сообщение оператору "
-                f"{_A('@marivalleri', 'https://t.me/marivalleri')} "
+                f"{_A('@ArtemovaEvent', 'https://t.me/ArtemovaEvent')} "
                 f"или подойдите к гардеробу в зону {_B('Нарядильня')}."
             )
-            kb.button(text='📩 Написать оператору', url='https://t.me/marivalleri')
+            kb.button(text='📩 Написать оператору', url='https://t.me/ArtemovaEvent')
         case 11:
             title = (
                 f"💬 {_B('Опишите свою проблему')} и отправьте сообщение оператору.\n\n"
-                f"👤 TG: {_A('@marivalleri', 'https://t.me/marivalleri')}"
+                f"👤 TG: {_A('@ArtemovaEvent', 'https://t.me/ArtemovaEvent')}"
             )
-            kb.button(text='📩 Написать оператору', url='https://t.me/marivalleri')
+            kb.button(text='📩 Написать оператору', url='https://t.me/ArtemovaEvent')
 
     kb.button(text=text.back, callback_data="help")
     kb.adjust(1)
