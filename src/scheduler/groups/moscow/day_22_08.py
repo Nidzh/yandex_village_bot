@@ -149,7 +149,7 @@ async def time_15_10(test: bool = False, stream_url: str = "https://vkvideo.ru/v
     markup = kb.as_markup()
 
     for user in users:
-        await asyncio.sleep(0.1)
+        await asyncio.sleep(0.2)
         await bot.bot.send_photo(
             chat_id=user,
             photo=media["22_08_15_10.jpg"],
@@ -183,7 +183,7 @@ async def time_15_20(test: bool = False):
     ]
 
     for user in users:
-        await asyncio.sleep(0.1)
+        await asyncio.sleep(0.2)
         await bot.bot.send_media_group(chat_id=user, media=photos)
 
 
@@ -201,7 +201,7 @@ async def time_15_25(test: bool = False):
     )
 
     for user in users:
-        await asyncio.sleep(0.1)
+        await asyncio.sleep(0.2)
         await bot.bot.send_message(
             chat_id=user,
             text=title,
@@ -222,7 +222,7 @@ async def time_15_30(test: bool = False):
     )
 
     for user in users:
-        await asyncio.sleep(0.1)
+        await asyncio.sleep(0.2)
         await bot.bot.send_photo(
             chat_id=user,
             photo=media["22_08_15_30.jpg"],
@@ -244,7 +244,7 @@ async def time_15_50(test: bool = False):
     )
 
     for user in users:
-        await asyncio.sleep(0.1)
+        await asyncio.sleep(0.2)
         await bot.bot.send_photo(
             chat_id=user,
             photo=media["22_08_15_50.jpg"],
@@ -266,7 +266,7 @@ async def time_17_50(test: bool = False):
     )
 
     for user in users:
-        await asyncio.sleep(0.1)
+        await asyncio.sleep(0.2)
         await bot.bot.send_photo(
             chat_id=user,
             photo=media["22_08_17_50.png"],
@@ -288,7 +288,7 @@ async def time_17_55(test: bool = False):
     )
 
     for user in users:
-        await asyncio.sleep(0.1)
+        await asyncio.sleep(0.2)
         await bot.bot.send_photo(
             chat_id=user,
             photo=media["22_08_17_55.png"],
@@ -316,7 +316,7 @@ async def time_18_00(test: bool = False, vote_url: str = "https://forms.yandex.r
     markup = kb.as_markup()
 
     for user in users:
-        await asyncio.sleep(0.1)
+        await asyncio.sleep(0.2)
         await bot.bot.send_message(chat_id=user, text=title, reply_markup=markup)
 
 
@@ -333,7 +333,7 @@ async def time_19_20(test: bool = False):
     )
 
     for user in users:
-        await asyncio.sleep(0.1)
+        await asyncio.sleep(0.2)
         await bot.bot.send_photo(
             chat_id=user,
             photo=media["22_08_19_20.jpg"],
@@ -354,7 +354,7 @@ async def time_19_30(test: bool = False):
     )
 
     for user in users:
-        await asyncio.sleep(0.1)
+        await asyncio.sleep(0.2)
         await bot.bot.send_video(
             chat_id=user,
             video=media["22_08_19_30.mp4"],
@@ -375,7 +375,7 @@ async def time_20_30(test: bool = False):
     )
 
     for user in users:
-        await asyncio.sleep(0.1)
+        await asyncio.sleep(0.2)
         await bot.bot.send_photo(
             chat_id=user,
             photo=media["22_08_20_30.png"],
@@ -399,7 +399,7 @@ async def time_01_00(test: bool = False):
     )
 
     for user in users:
-        await asyncio.sleep(0.1)
+        await asyncio.sleep(0.2)
         await bot.bot.send_photo(
             chat_id=user,
             photo=media["22_08_01_00.jpg"],
